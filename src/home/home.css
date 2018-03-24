@@ -1,0 +1,47 @@
+.course {
+    padding: 1em;
+    background: #fff;
+    border: 1px solid black;
+}
+
+.course h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.course h2 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #666;
+    margin: 0;
+}
+
+.course .short-desc {
+    font-size: 0.9em;
+    text-align: justify;
+    margin-bottom: 0.5em;
+}
+
+.course .button {
+    border-radius: 0;
+}
+
+.course .certificate {
+    color: #f1c727;
+}
+
+.course > .progress {
+    margin: 0;
+    border-radius: 0;
+    margin-bottom: 0.25em;
+}
+
+.course .results {
+    padding: 0.5em 1em;
+    color: white;
+    background: #000000;
+    line-height: 2em;
+    font-weight: bold;
+    margin: 0.25em -1em;
+    margin-bottom: 0.5em;
+}

@@ -13,7 +13,13 @@ body {
   padding: 0em 0.5em;
 }
 
-.navbar > a:hover {
+.navbar > a.active {
+  background: white;
+  color: #000;
+  cursor: default;
+}
+
+.navbar > a:not(.active):hover {
   background: #3273dc;;
   color: white;
 }

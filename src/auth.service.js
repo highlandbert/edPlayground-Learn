@@ -1,23 +1,21 @@
 
 export default class AuthService {
 
-    static saveCredentials(token) {
-        window.localStorage.setItem('auth-token', token);
+    static getCredentials() {
+        return JSON.parse(window.localStorage.getItem('auth'));
     }
 
     static hasCredentials() {
-        return window.localStorage.getItem('auth-token') !== null;
+        return window.localStorage.getItem('auth') !== null;
     }
 
     static deleteCredentials() {
-        window.localStorage.removeItem('auth-token');
-    }
-
-    static saveUsername(name) {
-        window.localStorage.setItem('username', name);
+        window.localStorage.removeItem('auth');
     }
 
     static getUsername() {
-        return window.localStorage.getItem('username') || 'Stranger';
+        return this.hasCredentials()
+            ? this.getCredentials().username
+            : 'Stranger';
     }
 }

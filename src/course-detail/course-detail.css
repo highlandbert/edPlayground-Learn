@@ -1,0 +1,45 @@
+.overview {
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.overview h1 {
+    font-size: 1.5em;
+}
+
+.overview p {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.overview progress {
+    border-radius: 0px;
+}
+
+.lessons {
+    margin-top: 1em;
+}
+
+.lesson {
+    position: relative;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+}
+
+.lesson > i {
+    position: absolute;
+    left: 0.4em;
+    top: 0.4em;
+    font-size: 2em;
+    color: #e4e4e4;
+}
+
+.lesson > i.done {
+    color: #44af65;
+}
+
+.lesson > h2 {
+    margin-left: 2.5em;
+    font-weight: bold;
+}

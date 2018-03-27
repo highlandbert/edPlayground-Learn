@@ -18,4 +18,9 @@ export default class AuthService {
             ? this.getCredentials().username
             : 'Stranger';
     }
+
+    static doLogin() {
+        this.deleteCredentials();
+        window.location.href = "/auth";
+    }
 }

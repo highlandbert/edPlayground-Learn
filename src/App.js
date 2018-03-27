@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
 
     if (!AuthService.hasCredentials()) {
-      console.log('Redirect to Login');
+      AuthService.doLogin();
     }
   }
 

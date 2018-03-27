@@ -14,7 +14,7 @@ export default class CourseBox extends Component {
           <h1>{this.props.course.name}</h1>
           <p className="short-desc">{this.props.course.description}</p>
           <progress className="progress is-success" value="60" max="100">60%</progress>
-          <Link to={link} className="button is-link">Continue</Link>
+          <Link to={link} className="ed-link">Continue</Link>
       </div>
     );
   }

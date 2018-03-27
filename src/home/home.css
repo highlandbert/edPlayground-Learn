@@ -22,8 +22,11 @@
     margin-bottom: 0.5em;
 }
 
-.course .button {
-    border-radius: 0;
+.course .ed-link {
+    display: block;
+    margin: -1em;
+    margin-top: 1em;
+    padding: 0.5em;
 }
 
 .course .certificate {

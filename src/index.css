@@ -2,45 +2,32 @@ body {
   min-height: 100vh;
 }
 
-.navbar {
-  display: flex;
-  font-size: 2em;
+a.ed-link {
+  text-align: center;
+  font-weight: bold;
   background: black;
-}
-
-.navbar > a {
   color: #eaeaea;
   padding: 0em 0.5em;
+  transition: background 0.25s, color 0.25s;
 }
 
-.navbar > a.active {
+a.ed-link.active {
   background: white;
   color: #000;
   cursor: default;
 }
 
-.navbar > a:not(.active):hover {
+a.ed-link:not(.active):hover {
   background: #3273dc;;
   color: white;
+  transition: background 0.1s, color 0.1s;
 }
 
-.navbar a.brand {
-  font-size: 0.8em;
-  line-height: 1.8em;
-  padding: 0em 1em;
-  font-weight: bold;
-}
 
-.navbar > .user {
-  color: #eaeaea;
-  margin-left: auto;
-  padding: 0em 0.5em;
-  cursor: pointer;
-}
-
-.navbar > .user:hover {
-  background: #44af65;
-  color: white;
+.navbar {
+  display: flex;
+  font-size: 2em;
+  background: black;
 }
 
 .section.main {

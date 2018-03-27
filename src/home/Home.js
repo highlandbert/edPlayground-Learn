@@ -36,7 +36,7 @@ export default class Home extends Component {
                 Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows,
                 and on the strength of that one show they decide if they're going to make more shows.
               </p>
-              <a className="button is-link">View Certificate</a>
+              <a className="ed-link">View Certificate</a>
             </div>
           </div>
         </div>

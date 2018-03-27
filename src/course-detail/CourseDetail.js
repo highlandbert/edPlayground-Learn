@@ -34,6 +34,23 @@ export default class Home extends Component {
           <div className="lesson">
             <i className="fas fa-circle"></i>
             <h2>Lesson 2</h2>
+            <div className="levels">
+              <div className="_level">
+                <h3 className="name"><i className="done fas fa-check-circle"></i>Level 1</h3>
+                <h3 className="mark"><i className="fas fa-clock"></i>00:01:27</h3>
+                <h3 className="arrow"><i className="fas fa-arrow-right"></i></h3>
+                <h3 className="mark"><i className="fas fa-trophy"></i>#3456</h3>
+                <a className="ed-link">Repeat</a>
+              </div>
+              <div className="_level">
+                <h3 className="name"><i className="fas fa-circle"></i>Level 2</h3>
+                <a className="ed-link">Start</a>
+              </div>
+              <div className="_level">
+                <h3 className="name"><i className="fas fa-circle"></i>Hint</h3>
+                <a className="ed-link">Open</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

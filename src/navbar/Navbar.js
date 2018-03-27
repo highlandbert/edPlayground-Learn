@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
+import './navbar.css'
 
-export default class Navbar extends Component {
+const RoutedNavbar = withRouter(props => <Navbar {...props}/>);
+
+class Navbar extends Component {
 
   constructor(props) {
     super(props);
-
-    //https://github.com/ReactTraining/history#listening
-    history.listen((location, action) => {
-      console.log(
-        `The current URL is ${location.pathname}${location.search}${location.hash}`
-      )
-      console.log(`The last navigation action was ${action}`)
-    });
   }
 
   render() {
+    const homeClassName = this.props.location.pathname === '/home'
+      ? 'ed-link home active'
+      : 'ed-link home';
+
     return (
         <div className="navbar">
-            <a href="#"className="brand">edPlayground</a>
-            <a href="#" className="discover"><i className="fas fa-compass"></i></a>
-            <Link to="/home" className="home active"><i className="fas fa-th"></i></Link>
+            <a href="#"className="ed-link brand">edPlayground</a>
+            <a href="#" className="ed-link discover"><i className="fas fa-compass"></i></a>
+            <Link to="/home" className={homeClassName}><i className="fas fa-th"></i></Link>
             <p className="user"><i className="fas fa-user-circle"></i></p>
             <div className="user-stuff">
             </div>
@@ -28,3 +27,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default RoutedNavbar;

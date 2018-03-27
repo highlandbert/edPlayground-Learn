@@ -1,5 +1,5 @@
-import Config from '../config'
-import AuthService from '../auth.service';
+import AuthService from '../auth.service'
+import ApiService from '../api.service'
 
 export class Course {
   constructor(obj) {
@@ -20,9 +20,7 @@ export class Lesson {
 export class Courses {
 
   static get(courseId) {
-    const auth = AuthService.getCredentials();
-    const token = auth.token;
-    return fetch(`${Config.api}/courses/${courseId}?token=${token}`)
+    return ApiService.get(`courses/${courseId}`)
       .then(res => res.json())
       .then(result => new Course(result));
   }
@@ -30,16 +28,14 @@ export class Courses {
   static getAll() {
     const auth = AuthService.getCredentials();
     const userid = auth._id;
-    const token = auth.token;
-    return fetch(`${Config.api}/enrollments/user/${userid}?token=${token}`)
+
+    return ApiService.get(`enrollments/user/${userid}`)
       .then(res => res.json())
       .then(results => results.map(result => new Course(result.course)));
   }
 
   static getLessons(courseId) {
-    const auth = AuthService.getCredentials();
-    const token = auth.token;
-    return fetch(`${Config.api}/lessons/${courseId}?token=${token}`)
+    return ApiService.get(`lessons/${courseId}`)
       .then(res => res.json())
       .then(results => results.map(result => new Lesson(result)));
   }

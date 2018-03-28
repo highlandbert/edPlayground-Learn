@@ -1,21 +1,6 @@
 import AuthService from '../auth.service'
 import ApiService from '../api.service'
-
-export class Course {
-  constructor(obj) {
-    this._id = obj && obj._id || 0;
-    this.name = obj && obj.name || '';
-    this.description = obj && obj.description || '';
-  }
-}
-
-export class Lesson {
-  constructor(obj) {
-    this._id = obj && obj._id || 0;
-    this.name = obj && obj.name || '';
-    this.order = obj && obj.order || 0;
-  }
-}
+import { Course, Lesson, Level, Supplement } from './model'
 
 export class Courses {
 
@@ -37,6 +22,22 @@ export class Courses {
   static getLessons(courseId) {
     return ApiService.get(`lessons/${courseId}`)
       .then(res => res.json())
-      .then(results => results.map(result => new Lesson(result)));
+      .then(r => { console.log(r); return r; })
+      .then(results => results.map(result => new Lesson(result)))
+      .then(results => results.sort((a, b) => a.order - b.order));
+  }
+
+  static getLevels(lessonId) {
+    return ApiService.get(`levels/${lessonId}`)
+      .then(res => res.json())
+      .then(results => results.map(result => new Level(result)))
+      .then(results => results.sort((a, b) => a.order - b.order));
+  }
+
+  static getSupplements(lessonId) {
+    return ApiService.get(`supplements/${lessonId}`)
+      .then(res => res.json())
+      .then(results => results.map(result => new Supplement(result)))
+      .then(results => results.sort((a, b) => a.order - b.order));
   }
 }

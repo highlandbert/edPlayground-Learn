@@ -9,7 +9,7 @@ export class Courses {
       .then(res => res.json())
       .then(result => new Course(result));
   }
-    
+
   static getAll() {
     const auth = AuthService.getCredentials();
     const userid = auth._id;
@@ -22,7 +22,6 @@ export class Courses {
   static getLessons(courseId) {
     return ApiService.get(`lessons/${courseId}`)
       .then(res => res.json())
-      .then(r => { console.log(r); return r; })
       .then(results => results.map(result => new Lesson(result)))
       .then(results => results.sort((a, b) => a.order - b.order));
   }

@@ -7,15 +7,9 @@ export default class SupplementBox extends React.Component {
   }
 
   render() {
-    const isCompleted = false;
-
-    const iconClassName = isCompleted
-      ? 'done fas fa-check-circle'
-      : 'fas fa-circle';
-
     return (
-      <div className="_level">
-        <h3 className="name"><i className={iconClassName}></i>{this.props.supplement.name}</h3>
+      <div className="_level supplement">
+        <h3 className="name"><i className="fas fa-info-circle"></i>{this.props.supplement.name}</h3>
         <a className="ed-link">Open</a>
       </div>);
   }

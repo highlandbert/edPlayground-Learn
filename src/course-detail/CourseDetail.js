@@ -17,22 +17,7 @@ export default class Home extends Component {
 
     const courseId = props.match.params.id;
     Courses.get(courseId).then(course => this.setState({ course: course }));
-    Courses.getLessons(courseId).then(lessons => {
-      this.setState({ lessons: lessons });
-      lessons.forEach((lesson, index) => {
-        Courses.getLevels(lesson._id).then(levels => {
-          const updatedLessons = this.state.lessons.slice(0);
-          updatedLessons[index].levels = levels;
-          this.setState({ lessons: updatedLessons });
-        });
-        Courses.getSupplements(lesson._id).then(supplements => {
-          const updatedLessons = this.state.lessons.slice(0);
-          updatedLessons[index].supplements = supplements;
-          this.setState({ lessons: updatedLessons });
-        });
-      });
-    });
-    
+    Courses.getLessons(courseId).then(lessons => this.setState({ lessons: lessons }));
   }
 
   render() {
@@ -40,7 +25,7 @@ export default class Home extends Component {
     let lessons = this.state.lessons.map(lesson => (
       <LessonBox key={lesson._id} lesson={lesson}/>)
     );
-    
+
     return (
       <div>
         <div className="overview">
@@ -49,7 +34,7 @@ export default class Home extends Component {
           <progress className="progress is-success" value="60" max="100">60%</progress>
         </div>
         <div className="lessons">
-          {lessons}          
+          {lessons}
         </div>
       </div>
     );

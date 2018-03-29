@@ -1,22 +1,29 @@
 import React, { Component } from 'react'
 import LevelBox from './Level/LevelBox'
 import SupplementBox from './Supplement/SupplementBox'
+import { Courses } from '../../data/courses'
 import { Level } from '../../data/model'
 
 export default class LessonBox extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      levels: [],
+      supplements: []
+    };
+
+    Courses.getLevels(props.lesson._id).then(levels => this.setState({ levels: levels }));
+    Courses.getSupplements(props.lesson._id).then(supplements => this.setState({ supplements: supplements }));
   }
 
   render() {
 
     const isCompleted = false;
 
-    let mix = this.props.lesson.levels.concat(this.props.lesson.supplements);
-    mix.sort((a, b) => a.order - b.order);
-
-    let components = mix.map(element => 
+    let mix = this.state.levels.concat(this.state.supplements).sort((a, b) => a.order - b.order);
+    let components = mix.map(element =>
       (element instanceof Level)
         ? <LevelBox key={element._id} level={element} />
         : <SupplementBox key={element._id} supplement={element} />

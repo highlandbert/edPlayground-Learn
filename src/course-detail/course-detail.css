@@ -91,3 +91,7 @@
     padding: 1em;
     min-width: 6em;
 }
+
+._level.supplement i {
+    color: #00a4d8;
+}

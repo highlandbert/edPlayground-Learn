@@ -30,3 +30,10 @@ export class Supplement {
     this.content = obj && obj.content || '';
   }
 }
+
+export class LevelResults {
+  constructor(obj) {
+    this._id = obj && obj._id || 0;
+    this.seconds = obj && obj.seconds || -1;
+  }
+}

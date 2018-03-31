@@ -26,19 +26,19 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/learn">
         <div className="page">
           <Navbar/>
           <div className="section main">
             <div className="container">
               <div className="contents">
-                
+
                 <Switch>
                   <Route path="/home" component={Home}/>
                   <Route path="/course/:id" component={CourseDetail}/>
                   <Redirect to="/home" />
                 </Switch>
-                
+
               </div>
               <Footer/>
             </div>

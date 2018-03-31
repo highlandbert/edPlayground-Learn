@@ -1,6 +1,6 @@
 .overview {
-    padding-bottom: 1em;
-    border-bottom: 1px solid black;
+    padding: 1em;
+    border: 1px solid black;
 }
 
 .overview h1 {
@@ -85,7 +85,7 @@
     color: #44af65;
 }
 
-._level a {
+._level > a {
     margin: -1em;
     margin-left: auto;
     padding: 1em;
@@ -94,4 +94,28 @@
 
 ._level.supplement i {
     color: #00a4d8;
+}
+
+.supplement .content {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 99;
+    display: none;
+}
+
+.supplement .content.show {
+    display: block;
+}
+
+.supplement .content .ed-link {
+    padding: 1em 2em;
+    display: inline-block;
+}
+
+.supplement .content .container {
+    padding: 2em;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LevelsResults from '../../../data/levels-results'
+import Results from '../../../data/results'
 
 export default class LevelBox extends React.Component {
 
@@ -11,12 +11,17 @@ export default class LevelBox extends React.Component {
       ranking: -1,
     };
 
-    LevelsResults.get(props.level._id)
+    Results.getLevelResults(props.level._id)
       .then(result => {
+        if (result === undefined) {
+          return Promise.reject();
+        }
         this.setState({ seconds: result.seconds });
-        return LevelsResults.getRanking(result.seconds);
+        return Results.getRanking(result.seconds);
       })
-      .then(ranking => this.setState({ ranking: ranking }));
+      .then(
+        ranking => this.setState({ ranking: ranking }),
+        () => {});
   }
 
   renderSeconds(seconds) {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import LevelBox from './Level/LevelBox'
 import SupplementBox from './Supplement/SupplementBox'
-import { Courses } from '../../data/courses'
+import Courses from '../../data/courses'
+import Results from '../../data/results'
 import { Level } from '../../data/model'
 
 export default class LessonBox extends React.Component {
@@ -11,16 +12,24 @@ export default class LessonBox extends React.Component {
 
     this.state = {
       levels: [],
-      supplements: []
+      supplements: [],
+      progress: 0
     };
 
-    Courses.getLevels(props.lesson._id).then(levels => this.setState({ levels: levels }));
-    Courses.getSupplements(props.lesson._id).then(supplements => this.setState({ supplements: supplements }));
+    Results.getLessonResults(props.lesson._id)
+      .then(([levels, results]) => {
+        this.setState({ levels: levels });
+        const progress = Results.calcLessonProgress(levels, results);
+        this.setState({ progress: progress });
+      });
+
+    Courses.getSupplements(props.lesson._id)
+      .then(supplements => this.setState({ supplements: supplements }));
   }
 
   render() {
 
-    const isCompleted = false;
+    const isCompleted = this.state.progress === 100;
 
     let mix = this.state.levels.concat(this.state.supplements).sort((a, b) => a.order - b.order);
     let components = mix.map(element =>

@@ -12,6 +12,10 @@ a.ed-link {
   transition: background 0.25s, color 0.25s;
 }
 
+a.ed-link.separated {
+  margin-right: 0.5em;
+}
+
 a.ed-link.active {
   background: white;
   color: #000;

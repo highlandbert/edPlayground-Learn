@@ -15,6 +15,7 @@ import Home from './home/Home'
 import CourseDetail from './course-detail/CourseDetail'
 import Discussion from './discussion/Discussion';
 import QuestionDetail from './discussion/QuestionDetail';
+import NewQuestion from './discussion/NewQuestion';
 
 class App extends Component {
 
@@ -41,6 +42,7 @@ class App extends Component {
                   <Route path="/course/:id" component={CourseDetail}/>
                   <Route path="/discussion/:id" component={Discussion}/>
                   <Route path="/question/:courseId/:id" component={QuestionDetail}/>
+                  <Route path="/newquestion/:id" component={NewQuestion} />
                   <Redirect to="/home" />
                 </Switch>
 

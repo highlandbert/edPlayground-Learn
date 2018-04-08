@@ -39,3 +39,28 @@ export class LevelResults {
     this.levelId = (obj && obj.level) && obj.level._id || 0;
   }
 }
+
+export class Question {
+  constructor(obj) {
+    this._id = obj && obj._id || 0;
+    this.title = obj && obj.title || '';
+    this.content = obj && obj.content || '';
+    this.created = obj && new Date(obj.created) || new Date(0);
+    this.user = (obj && obj.user) && obj.user.username || '';
+  }
+}
+
+export class User {
+  constructor(obj) {
+    this.username = obj && obj.username;
+  }
+}
+
+export class Answer {
+  constructor(obj) {
+    this._id = obj && obj._id || 0;
+    this.content = obj && obj.content || '';
+    this.created = obj && new Date(obj.created);
+    this.user = (obj && obj.user) && obj.user.username || '';
+  }
+}

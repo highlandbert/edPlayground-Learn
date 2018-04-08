@@ -17,8 +17,28 @@ export default class ApiService {
       if (response.status === 403) {
         AuthService.doLogin();
       } else {
-        return response;
+        return response.json();
       }
+    });
+  }
+
+  static post(route, params) {
+    const auth = AuthService.getCredentials();
+    const token = auth.token;
+
+    return fetch(`${Config.api}/${route}`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'x-access-token': token,
+      },
+      body: params
+    })
+    .then(res => {
+      if (res.status === 400) {
+        return res.json().then(error => ({ error: error }));
+      }
+      return res.json()
     });
   }
 }

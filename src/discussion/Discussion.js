@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import './discussion.css'
+import Discussions from '../data/discussions'
 
 export default class Discussion extends Component {
 
@@ -12,26 +13,36 @@ export default class Discussion extends Component {
     };
 
     const courseId = props.match.params.id;
-    console.log('discussion');
+    Discussions.getQuestions(courseId)
+      .then(questions => this.setState({ questions: questions }));
   }
 
   render() {
     const backLink = `/course/${this.props.match.params.id}`;
+    const newLink = `/newquestion/${this.props.match.params.id}`;
+
+    const questions = this.state.questions.map(question => {
+      const link = `/question/${this.props.match.params.id}/${question._id}`;
+      return (
+        <div key={question._id} className="question-link">
+          <h3>{question.title}</h3>
+          <p>{question.user}</p>
+          <p>{question.created.toLocaleString()}</p>
+          <Link to={link} className="ed-link">Open</Link>
+        </div>
+      );
+    });
 
     return (
       <div>
-        <Link to={backLink} className="ed-link">Back to course</Link>
+        <Link to={backLink} className="ed-link separated">Back to course</Link>
+        <Link to={newLink} className="ed-link">New Question</Link>
         <div className="question-link">
-          <h3><i className="fas fa-thumbtack"></i> Welcome to Aprende a Programar!</h3>
+          <h3><i className="fas fa-thumbtack"></i> Welcome!</h3>
           <p>edPlayground</p>
           <a href="#" className="ed-link">Open</a>
         </div>
-        <div className="question-link">
-          <h3>Why do we exists?</h3>
-          <p>roberto</p>
-          <p>08/04/2018 14:23</p>
-          <a href="#" className="ed-link">Open</a>
-        </div>
+        {questions}
       </div>
     );
   }

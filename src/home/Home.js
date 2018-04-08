@@ -11,7 +11,7 @@ export default class Home extends Component {
 
     this.state = {
       courses: []
-    }
+    };
 
     Courses.getAll().then(courses => this.setState({ courses: courses}));
   }

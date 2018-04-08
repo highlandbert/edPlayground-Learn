@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import './discussion.css'
+import { Question } from '../data/model'
+import Discussions from '../data/discussions'
 
 export default class QuestionDetail extends Component {
 
@@ -8,44 +10,72 @@ export default class QuestionDetail extends Component {
     super(props);
 
     this.state = {
-      questions: [],
-      courseId: 0
+      question: new Question(),
+      replyContent: '',
+      answers: []
     };
 
     const questionId = props.match.params.id;
-    console.log(questionId);
+    
+    Discussions.getQuestion(questionId)
+      .then(question => {
+        this.setState({ question: question });
+        this.updateAnswers();
+      });
   }
+
+  updateAnswers = () => {
+    Discussions.getAnswers(this.state.question._id)
+      .then(answers => this.setState({ answers: answers }));
+  };
+
+  reply = (event) => {
+    event.preventDefault();
+
+    Discussions.createAnswer(this.state.replyContent, this.state.question._id)
+      .then(result => {
+        if (result.done) {
+          this.setState({ replyContent: '' });
+          this.updateAnswers();
+        }
+      });
+  };
+
+  replyContentChanged = (event) => this.setState({ replyContent: event.target.value });
 
   render() {
 
     const backLink = `/discussion/${this.props.match.params.courseId}`;
 
+    const answers = this.state.answers.map(answer => {
+
+      return (
+        <div key={answer._id} className="answer">
+          <p>{answer.content}</p>
+          <div className="info">
+            <p>{answer.user}</p><p>{answer.created.toLocaleString()}</p>
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div>
         <Link to={backLink} className="ed-link">Back to discussion</Link>
         <div className="question">
-          <h3>Why do we exists?</h3>
-          <p>
-            Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine.
-            You don't get sick, I do. That's also clear.
-          </p>
+          <h3>{this.state.question.title}</h3>
+          <p>{this.state.question.content}</p>
           <div className="info">
-            <p>roberto</p><p>08/04/2018 14:23</p>
+            <p>{this.state.question.user}</p>
+            <p>{this.state.question.created.toLocaleString()}</p>
           </div>
         </div>
 
-        <div className="answer">
-          <p>
-            Because we do
-          </p>
-          <div className="info">
-            <p>roberto</p><p>08/04/2018 14:53</p>
-          </div>
-        </div>
+        {answers}
 
         <div className="new-answer">
-          <textarea></textarea>
-          <a className="ed-link" href="#">Reply</a>
+          <textarea value={this.state.replyContent} onChange={this.replyContentChanged}></textarea>
+          <a className="ed-link" href="#" onClick={this.reply}>Reply</a>
         </div>
       </div>
     );

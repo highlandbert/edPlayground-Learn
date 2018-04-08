@@ -22,7 +22,6 @@ export default class Results {
     const userId = auth._id;
 
     return ApiService.get(`levelsResults/user/${userId}/level/${levelId}`)
-      .then(res => res.json())
       .then(result => {
         const levelResults = result === null ? undefined : new LevelResults(result);
         this._cache_level[levelId] = levelResults;
@@ -32,7 +31,6 @@ export default class Results {
 
   static getRanking(seconds) {
     return ApiService.get(`levelsResults/ranking/${seconds}`)
-      .then(res => res.json())
       .then(result => result);
   }
 

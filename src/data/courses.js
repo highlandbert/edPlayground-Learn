@@ -16,7 +16,6 @@ export default class Courses {
     }
 
     return ApiService.get(`courses/${courseId}`)
-      .then(res => res.json())
       .then(result => {
         const course = new Course(result);
         this._cache_course[courseId] = course;
@@ -29,7 +28,6 @@ export default class Courses {
     const userid = auth._id;
 
     return ApiService.get(`enrollments/user/${userid}`)
-      .then(res => res.json())
       .then(results => results.map(result => new Course(result.course)));
   }
 
@@ -40,7 +38,6 @@ export default class Courses {
     }
 
     return ApiService.get(`lessons/${courseId}`)
-      .then(res => res.json())
       .then(results => results.map(result => new Lesson(result)))
       .then(results => {
         const lessons = results.sort((a, b) => a.order - b.order);
@@ -56,7 +53,6 @@ export default class Courses {
     }
 
     return ApiService.get(`levels/${lessonId}`)
-      .then(res => res.json())
       .then(results => results.map(result => new Level(result)))
       .then(results => {
         const levels = results.sort((a, b) => a.order - b.order);
@@ -72,7 +68,6 @@ export default class Courses {
     }
 
     return ApiService.get(`supplements/${lessonId}`)
-      .then(res => res.json())
       .then(results => results.map(result => new Supplement(result)))
       .then(results => {
         const supplements = results.sort((a, b) => a.order - b.order);

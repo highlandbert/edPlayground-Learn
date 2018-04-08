@@ -13,6 +13,8 @@ import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
 import Home from './home/Home'
 import CourseDetail from './course-detail/CourseDetail'
+import Discussion from './discussion/Discussion';
+import QuestionDetail from './discussion/QuestionDetail';
 
 class App extends Component {
 
@@ -25,6 +27,7 @@ class App extends Component {
   }
 
   render() {
+    // <Router>
     return (
       <Router basename="/learn">
         <div className="page">
@@ -36,6 +39,8 @@ class App extends Component {
                 <Switch>
                   <Route path="/home" component={Home}/>
                   <Route path="/course/:id" component={CourseDetail}/>
+                  <Route path="/discussion/:id" component={Discussion}/>
+                  <Route path="/question/:courseId/:id" component={QuestionDetail}/>
                   <Redirect to="/home" />
                 </Switch>
 

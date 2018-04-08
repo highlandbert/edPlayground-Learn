@@ -35,6 +35,8 @@ export default class Home extends Component {
       <LessonBox key={lesson._id} lesson={lesson}/>)
     );
 
+    const discussionLink = `/discussion/${this.state.course._id}`;
+
     return (
       <div>
         <div className="overview">
@@ -43,6 +45,12 @@ export default class Home extends Component {
           <progress className="progress is-success" value={this.state.progress} max="100">
             {this.state.progress}%
           </progress>
+          <div className="discussion">
+            <Link to={discussionLink} className="ed-link"><i className="fas fa-comments"></i></Link>
+            <div><p>4</p><p>Open</p></div>
+            <div><p>24</p><p>Closed</p></div>
+            <div><p>10</p><p>Gold</p></div>
+          </div>
         </div>
         <div className="lessons">
           {lessons}

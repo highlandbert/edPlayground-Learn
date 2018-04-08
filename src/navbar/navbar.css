@@ -4,15 +4,19 @@
     padding: 0em 1em;
     font-weight: bold;
   }
-  
-  .navbar > .user {
-    color: #eaeaea;
-    margin-left: auto;
-    padding: 0em 0.5em;
-    cursor: pointer;
-  }
-  
-  .navbar > .user:hover {
-    background: #44af65;
-    color: white;
-  }
+
+.navbar > .user {
+  color: #eaeaea;
+  margin-left: auto;
+  padding: 0em 0.5em;
+  cursor: pointer;
+}
+
+.navbar > .user:hover {
+  background: #44af65;
+  color: white;
+}
+
+.navbar .ed-link {
+  padding: 0em 0.5em;
+}

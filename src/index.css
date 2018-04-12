@@ -56,3 +56,18 @@ a.ed-link:not(.active):hover {
 .main .footer a {
   margin: 0em 0.5em;
 }
+
+.gold,
+.platinum {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  background: #d5ff00;
+  border: 0.2em solid #d1e646;
+}
+
+.platinum {
+  background: #a0adb1;
+  border: 0.2em solid #547491;
+}

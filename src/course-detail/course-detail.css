@@ -9,7 +9,6 @@
 
 .overview p {
     margin-bottom: 0.5em;
-    font-weight: bold;
 }
 
 .overview progress {
@@ -136,43 +135,34 @@
 }
 
 .discussion > div {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1em;
+    margin-left: 0.5em;
 }
 
 .discussion > div > p {
-    margin: 0 auto;
+    margin: 0;
     font-weight: normal;
 }
 
 .discussion > div > p:last-child {
-    font-weight: bold;
 }
 
 .discussion > div > p:first-child {
-    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .discussion > div h3 {
     font-size: 1em;
 }
 
-.discussion .coin {
-    width: 2em;
-    height: 2em;
-    background: #f7e246;
-    display: inline-block;
-    border-radius: 1em;
+.discussion .gold,
+.discussion .platinum {
     vertical-align: middle;
-    border: 0.25em solid #e6cf22;
 }
 
 .discussion a {
     margin: -0.5em;
-    padding: 1.4em 1.5em;
-    margin-right: 1em;
+    padding: 1.4em 2em;
+    margin-left: auto;
 }

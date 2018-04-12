@@ -49,12 +49,25 @@
     font-size: 0.8em;
     margin: -1.25em;
     margin-top: 1em;
+    display: flex;
 }
 
 .question .info p,
 .answer .info p {
     display: inline-block;
     margin-right: 0.5em;
+}
+
+.question .info div,
+.answer .info div {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.question .info .platinum,
+.answer .info .gold {
+    font-size: 1.5em;
+    vertical-align: bottom;
 }
 
 .new-answer {

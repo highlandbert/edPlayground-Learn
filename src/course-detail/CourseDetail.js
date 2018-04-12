@@ -46,10 +46,15 @@ export default class Home extends Component {
             {this.state.progress}%
           </progress>
           <div className="discussion">
+            <div>
+              <p>Discussion</p>
+              <p>
+                Collaborate with your classmates and get coins
+                &nbsp;<span className="platinum"></span>
+                &nbsp;<span className="gold"></span>
+              </p>
+            </div>
             <Link to={discussionLink} className="ed-link"><i className="fas fa-comments"></i></Link>
-            <div><p>4</p><p>Open</p></div>
-            <div><p>24</p><p>Closed</p></div>
-            <div><p>10</p><p>Gold</p></div>
           </div>
         </div>
         <div className="lessons">

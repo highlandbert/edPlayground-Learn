@@ -64,3 +64,23 @@ export class Answer {
     this.user = (obj && obj.user) && obj.user.username || '';
   }
 }
+
+export class Gold {
+  constructor(obj) {
+    this._id = obj && obj._id || 0;
+    this.answerId = obj && obj.answer;
+    this.user = obj && obj.user;
+    this.creator = obj && obj.creator;
+    this.created = obj && new Date(obj.created);
+  }
+}
+
+export class Platinum {
+  constructor(obj) {
+    this._id = obj && obj._id || 0;
+    this.questionId = obj && obj.question;
+    this.user = obj && obj.user;
+    this.creator = obj && obj.creator;
+    this.created = obj && new Date(obj.created);
+  }
+}

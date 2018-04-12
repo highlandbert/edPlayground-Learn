@@ -41,4 +41,23 @@ export default class ApiService {
       return res.json()
     });
   }
+
+  static delete(route) {
+    const auth = AuthService.getCredentials();
+    const token = auth.token;
+    
+    return fetch(`${Config.api}/${route}`, {
+      headers: {
+        'x-access-token': token, 
+      },
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (response.status === 403) {
+        AuthService.doLogin();
+      } else {
+        return response.json();
+      }
+    });
+  }
 }

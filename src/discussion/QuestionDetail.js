@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import './discussion.css'
 import { Question } from '../data/model'
+import AnswerBox from './AnswerBox'
+import QuestionBox from './QuestionBox'
 import Discussions from '../data/discussions'
 
 export default class QuestionDetail extends Component {
@@ -10,7 +12,7 @@ export default class QuestionDetail extends Component {
     super(props);
 
     this.state = {
-      question: new Question(),
+      question: undefined,
       replyContent: '',
       answers: []
     };
@@ -47,32 +49,19 @@ export default class QuestionDetail extends Component {
 
     const backLink = `/discussion/${this.props.match.params.courseId}`;
 
-    const answers = this.state.answers.map(answer => {
+    const question = this.state.question !== undefined
+      ? <QuestionBox question={this.state.question} />
+      : '';
 
-      return (
-        <div key={answer._id} className="answer">
-          <p>{answer.content}</p>
-          <div className="info">
-            <p>{answer.user}</p><p>{answer.created.toLocaleString()}</p>
-          </div>
-        </div>
-      );
-    });
+    const answers = this.state.answers.map(answer => (
+      <AnswerBox key={answer._id} answer={answer} />
+    ));
 
     return (
       <div>
         <Link to={backLink} className="ed-link">Back to discussion</Link>
-        <div className="question">
-          <h3>{this.state.question.title}</h3>
-          <p>{this.state.question.content}</p>
-          <div className="info">
-            <p>{this.state.question.user}</p>
-            <p>{this.state.question.created.toLocaleString()}</p>
-          </div>
-        </div>
-
+        {question}
         {answers}
-
         <div className="new-answer">
           <textarea value={this.state.replyContent} onChange={this.replyContentChanged}></textarea>
           <a className="ed-link" href="#" onClick={this.reply}>Reply</a>

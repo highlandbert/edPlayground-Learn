@@ -24,7 +24,7 @@ export default class Discussion extends Component {
     const questions = this.state.questions.map(question => {
       const link = `/question/${this.props.match.params.id}/${question._id}`;
       return (
-        <div key={question._id} className="question-link">
+        <div key={question._id} className="question-link boxi">
           <h3>{question.title}</h3>
           <p>{question.user}</p>
           <p>{question.created.toLocaleString()}</p>
@@ -37,7 +37,7 @@ export default class Discussion extends Component {
       <div>
         <Link to={backLink} className="ed-link separated">Back to course</Link>
         <Link to={newLink} className="ed-link">New Question</Link>
-        <div className="question-link">
+        <div className="question-link boxi">
           <h3><i className="fas fa-thumbtack"></i> Welcome!</h3>
           <p>edPlayground</p>
           <a href="#" className="ed-link">Open</a>

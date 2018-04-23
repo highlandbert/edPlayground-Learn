@@ -1,18 +1,17 @@
-.overview {
-    padding: 1em;
-    border: 1px solid black;
-}
 
 .overview h1 {
     font-size: 1.5em;
+    margin-bottom: 0.2em;
 }
 
 .overview p {
+    margin-top: 0.3em;
     margin-bottom: 0.5em;
 }
 
 .overview progress {
-    border-radius: 0px;
+    height: 1.5em;
+    border-radius: 0.15em;
 }
 
 .overview .progress:not(:last-child) {
@@ -26,13 +25,12 @@
 .lesson {
     position: relative;
     margin-bottom: 1em;
-    border: 1px solid black;
 }
 
 .lesson > i {
     position: absolute;
     left: 0.4em;
-    top: 0.4em;
+    top: 0.7em;
     font-size: 2em;
     color: #e4e4e4;
 }
@@ -42,22 +40,23 @@
 }
 
 .lesson > h2 {
-    margin-left: 2.5em;
+    margin-left: 1.5em;
     font-weight: bold;
     padding: 1em;
 }
 
 ._level {
     display: flex;
-    padding: 1em;
+    padding: 0.5em;
     margin-top: 0.2em;
-    background: #f5f5f5;
+    border-top: 1px solid #eaeaea;
 }
 
 ._level h3 {
     margin-right: 1em;
     font-weight: bold;
     text-align: center;
+    line-height: 2.5em;
 }
 
 ._level h3.name i {
@@ -89,9 +88,8 @@
 }
 
 ._level > a {
-    margin: -1em;
     margin-left: auto;
-    padding: 1em;
+    border-radius: 0.15em;
     min-width: 6em;
 }
 
@@ -114,24 +112,31 @@
     display: block;
 }
 
+.supplement .content p {
+    margin: 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
 .supplement .content .ed-link {
-    padding: 1em 2em;
     display: inline-block;
+    border-radius: 0.15em;
 }
 
 .supplement .content .container {
     padding: 2em;
+    text-align: center;
 }
 
 .discussion {
     margin-top: 1em;
     padding: 0.5em;
-    background: whitesmoke;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     margin: -1em;
     margin-top: 1em;
+    border-top: 1px solid #eaeaea;
 }
 
 .discussion > div {
@@ -162,7 +167,7 @@
 }
 
 .discussion a {
-    margin: -0.5em;
-    padding: 1.4em 2em;
+    padding: 1em 1.5em;
     margin-left: auto;
+    border-radius: 0.15em;
 }

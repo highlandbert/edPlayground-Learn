@@ -30,15 +30,15 @@ class Navbar extends Component {
   }
 
   render() {
-    const homeClassName = this.props.location.pathname === '/home'
-      ? 'ed-link home active'
-      : 'ed-link home';
+    const home= this.props.location.pathname === '/home'
+      ? ''
+      : <Link className="ed-link" to="/home"><i className="fas fa-th"></i></Link>;
 
     return (
         <div className="navbar">
             <a href="#"className="ed-link brand">edPlayground</a>
             <a href="#" className="ed-link discover"><i className="fas fa-compass"></i></a>
-            <Link to="/home" className={homeClassName}><i className="fas fa-th"></i></Link>
+            {home}
             <div className="user">
               <p>{this.state.platinum} <span className="platinum"></span></p>
               <p>{this.state.gold} <span className="gold"></span></p>

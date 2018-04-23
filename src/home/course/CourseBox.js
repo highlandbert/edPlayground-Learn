@@ -26,10 +26,10 @@ export default class CourseBox extends Component {
       : '';
 
     return (
-      <div className="course">
+      <div className="course boxi">
           <h1>{badge} {this.props.course.name}</h1>
+          <div className="prog">{this.state.progress}%</div>
           <p className="short-desc">{this.props.course.description}</p>
-          <progress className="progress is-success" value={this.state.progress} max="100">{this.state.progress}%</progress>
           <Link to={link} className="ed-link">{linkText}</Link>
       </div>
     );

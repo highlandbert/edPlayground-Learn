@@ -43,7 +43,7 @@ export default class LessonBox extends React.Component {
       : 'fas fa-circle';
 
     return (
-      <div className="lesson">
+      <div className="lesson boxi">
         <i className={iconClassName}></i>
         <h2>{this.props.lesson.name}</h2>
         <div className="levels">

@@ -1,12 +1,12 @@
 .course {
-    padding: 1em;
-    background: #fff;
-    border: 1px solid black;
+    padding-top: 0.5em;
 }
 
 .course h1 {
     font-size: 1.5em;
     margin: 0;
+    text-align: center;
+    padding-bottom: 0.25em;
 }
 
 .course h2 {
@@ -24,17 +24,15 @@
 
 .course .ed-link {
     display: block;
-    margin: -1em;
     margin-top: 1em;
     padding: 0.5em;
+    border-radius: 0.15em;
 }
 
 .course .certificate {
     color: #f1c727;
 }
 
-.course > .progress {
-    margin: 0;
-    border-radius: 0;
+.course > .prog {
     margin-bottom: 0.5em;
 }

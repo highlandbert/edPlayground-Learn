@@ -36,8 +36,8 @@ class Navbar extends Component {
 
     return (
         <div className="navbar">
-            <a href="#"className="ed-link brand">edPlayground</a>
-            <a href="#" className="ed-link discover"><i className="fas fa-compass"></i></a>
+            <a href="/"className="ed-link brand">edPlayground</a>
+            <a href="/discover" className="ed-link discover"><i className="fas fa-compass"></i></a>
             {home}
             <div className="user">
               <p>{this.state.platinum} <span className="platinum"></span></p>

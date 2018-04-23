@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Describe learn here",
   "private": true,
-  "homepage": "http://localhost:3000/learn",
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",

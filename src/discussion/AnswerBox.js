@@ -15,7 +15,7 @@ export default class AnswerBox extends Component {
     this.update();
   }
 
-  update = () => 
+  update = () =>
     Discussions.getAnswerGold(this.props.answer._id)
       .then(gold => this.setState({gold}));
 
@@ -31,7 +31,7 @@ export default class AnswerBox extends Component {
 
   takeGold = (event) => {
     event.preventDefault();
-    
+
     const gold = this.userGivenGold();
     Discussions.deleteGold(gold._id)
       .then(result => this.update());
@@ -46,7 +46,7 @@ export default class AnswerBox extends Component {
       : <a href="#" onClick={this.giveGold}>Give coin</a>
 
     return (
-      <div key={this.props.answer._id} className="answer">
+      <div key={this.props.answer._id} className="answer boxi">
         <p>{this.props.answer.content}</p>
         <div className="info">
           <p>{this.props.answer.user}</p><p>{this.props.answer.created.toLocaleString()}</p>

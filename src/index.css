@@ -1,25 +1,22 @@
 body {
   min-height: 100vh;
+  color: #333;
+  background: #fafafa;
 }
 
 a.ed-link {
   text-align: center;
   font-weight: bold;
-  background: black;
-  color: #eaeaea;
+  color: #3273dc;
+  background: white;
   padding: 0.5em 1em;
+  border-radius: 0.15em;
   display: inline-block;
   transition: background 0.25s, color 0.25s;
 }
 
 a.ed-link.separated {
   margin-right: 0.5em;
-}
-
-a.ed-link.active {
-  background: white;
-  color: #000;
-  cursor: default;
 }
 
 a.ed-link:not(.active):hover {
@@ -32,7 +29,11 @@ a.ed-link:not(.active):hover {
 .navbar {
   display: flex;
   font-size: 2em;
-  background: black;
+  box-shadow: 1px 1px 3px 0px #00000020;
+}
+
+.navbar .ed-link {
+  border-radius: 0em;
 }
 
 .section.main {
@@ -70,4 +71,21 @@ a.ed-link:not(.active):hover {
 .platinum {
   background: #a0adb1;
   border: 0.2em solid #547491;
+}
+
+.prog {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.2em;
+    color: black;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(239, 239, 239) 50%, rgba(255,255,255,1) 100%);
+}
+
+.boxi {
+    padding: 1em;
+    padding-top: 0.5em;
+    background: #fff;
+    border-radius: 0.15em;
+    box-shadow: 1px 1px 3px 0px #00000020;
 }

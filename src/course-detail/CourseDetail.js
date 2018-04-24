@@ -39,7 +39,7 @@ export default class Home extends Component {
 
     return (
       <div>
-        <div className="overview">
+        <div className="overview boxi">
           <h1>{this.state.course.name}</h1>
           <p>{this.state.course.description}</p>
           <progress className="progress is-success" value={this.state.progress} max="100">

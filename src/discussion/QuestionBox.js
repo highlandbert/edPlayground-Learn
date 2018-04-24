@@ -15,7 +15,7 @@ export default class QuestionBox extends Component {
     this.update();
   }
 
-  update = () => 
+  update = () =>
     Discussions.getQuestionPlat(this.props.question._id)
       .then(platinum => this.setState({platinum}));
 
@@ -31,7 +31,7 @@ export default class QuestionBox extends Component {
 
   takePlat = (event) => {
     event.preventDefault();
-    
+
     const platinum = this.userGivenPlat();
     Discussions.deletePlat(platinum._id)
       .then(result => this.update());
@@ -46,7 +46,7 @@ export default class QuestionBox extends Component {
       : <a href="#" onClick={this.givePlat}>Give coin</a>
 
     return (
-      <div className="question">
+      <div className="question boxi">
         <h3>{this.props.question.title}</h3>
         <p>{this.props.question.content}</p>
         <div className="info">

@@ -52,7 +52,7 @@ export default class Courses {
       return Promise.resolve(this._cache_levels[lessonId]);
     }
 
-    return ApiService.get(`levels/${lessonId}`)
+    return ApiService.get(`levels/lesson/${lessonId}`)
       .then(results => results.map(result => new Level(result)))
       .then(results => {
         const levels = results.sort((a, b) => a.order - b.order);

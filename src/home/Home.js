@@ -18,6 +18,15 @@ export default class Home extends Component {
 
   render() {
 
+    if (this.state.courses.length === 0) {
+      return (
+        <div className="no-results">
+          <h1>This looks too empty</h1>
+          <a href="/discover">Find a course you may like</a>
+        </div>
+      );
+    }
+
     let courses = this.state.courses.map(course => (
       <div key={course._id} className="column is-one-third">
         <CourseBox course={course} />

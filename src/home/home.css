@@ -36,3 +36,15 @@
 .course > .prog {
     margin-bottom: 0.5em;
 }
+
+.no-results {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.no-results h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 0.5em;
+}

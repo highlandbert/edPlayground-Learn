@@ -75,4 +75,14 @@ export default class Courses {
         return supplements;
       });
   }
+
+  static enroll(courseId) {
+    const auth = AuthService.getCredentials();
+    const userId = auth._id;
+
+    var params = new URLSearchParams();
+    params.set('courseId', courseId);
+
+    return ApiService.post(`enrollments/user/${userId}`, params);
+  }
 }

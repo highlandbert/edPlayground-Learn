@@ -38,7 +38,7 @@ export class Supplement {
 export class LevelResults {
   constructor(obj) {
     this._id = obj && obj._id || 0;
-    this.seconds = obj && obj.seconds || -1;
+    this.seconds = (obj && obj.seconds !== undefined) ? obj.seconds : -1;
     this.order = (obj && obj.level) && obj.level.order || 0;
     this.levelId = (obj && obj.level) && obj.level._id || 0;
   }

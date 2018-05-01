@@ -54,14 +54,14 @@ export default class LevelBox extends React.Component {
           <h3 className="mark"><i className="fas fa-clock"></i>{this.renderSeconds(this.state.seconds)}</h3>
           <h3 className="arrow"><i className="fas fa-arrow-right"></i></h3>
           <h3 className="mark"><i className="fas fa-trophy"></i>{ranking}</h3>
-          <a className="ed-link">Repeat</a>
+          <a href={playLink} className="ed-link">Repeat</a>
         </div>);
     }
 
     return (
       <div className="_level">
         <h3 className="name"><i className="done fas fa-check-circle"></i>{this.props.level.name}</h3>
-        <a className="ed-link">Repeat</a>
+        <a href={playLink} className="ed-link">Repeat</a>
       </div>);
   }
 }

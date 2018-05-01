@@ -36,14 +36,16 @@ class Navbar extends Component {
 
     return (
         <div className="navbar">
-            <a href="/"className="ed-link brand">edPlayground</a>
-            <a href="/discover" className="ed-link discover"><i className="fas fa-compass"></i></a>
-            {home}
+            <div>
+              <a href="/"className="ed-link brand">edPlayground</a>
+              <a href="/discover" className="ed-link discover"><i className="fas fa-compass"></i></a>
+              <a href="/auth/account" className="ed-link"><i className="fas fa-user-circle"></i></a>
+              {home}
+            </div>
             <div className="user">
               <p>{this.state.platinum} <span className="platinum"></span></p>
               <p>{this.state.gold} <span className="gold"></span></p>
               <p>{this.state.username}</p>
-              <a href="/auth/account" className="ed-link"><i className="fas fa-user-circle"></i></a>
             </div>
         </div>
     );

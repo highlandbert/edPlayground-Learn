@@ -37,7 +37,7 @@ export default class NewQuestion extends Component {
     }
 
     return (
-      <div>
+      <div className="discus">
         <Link to={backLink} className="ed-link">Back to discussion</Link>
         <div className="new-question">
           <h3>Make a new question</h3>

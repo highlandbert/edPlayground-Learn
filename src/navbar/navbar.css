@@ -1,12 +1,11 @@
 .navbar a.brand {
   font-size: 0.8em;
-  line-height: 1.8em;
-  padding: 0em 1em;
+  line-height: 2.1em;
+  padding: 0em 0.25em;
   font-weight: bold;
 }
 
 .navbar > .user {
-  margin-left: auto;
 }
 
 .navbar > .user > p {
@@ -24,12 +23,25 @@
   top: 0.15em;
 }
 
-.navbar > .user > a {
-  height: 100%;
-  padding: 0 0.35em;
+.navbar .ed-link {
+  padding: 0em 0.25em;
+  height: 52px;
 }
 
+@media screen and (min-width: 780px) {
+  .navbar {
+    flex-direction: row;
+  }
 
-.navbar .ed-link {
-  padding: 0em 0.5em;
+  .navbar > .user {
+    margin-left: auto;
+  }
+
+  .navbar .ed-link {
+    padding: 0em 0.5em;
+  }
+
+  .navbar a.brand {
+    padding: 0em 1em;
+  }
 }

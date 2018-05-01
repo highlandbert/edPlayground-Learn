@@ -34,7 +34,7 @@ export default class Discussion extends Component {
     });
 
     return (
-      <div>
+      <div className="discus">
         <Link to={backLink} className="ed-link separated">Back to course</Link>
         <Link to={newLink} className="ed-link">New Question</Link>
         {questions}

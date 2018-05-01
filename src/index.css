@@ -28,6 +28,8 @@ a.ed-link:not(.active):hover {
 
 .navbar {
   display: flex;
+  flex-direction: column;
+  text-align: center;
   font-size: 2em;
   box-shadow: 1px 1px 3px 0px #00000020;
 }
@@ -88,4 +90,10 @@ a.ed-link:not(.active):hover {
     background: #fff;
     border-radius: 0.15em;
     box-shadow: 1px 1px 3px 0px #00000020;
+}
+
+@media screen and (min-width: 780px) {
+  .navbar {
+    flex-direction: row;
+  }
 }

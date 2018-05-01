@@ -37,11 +37,13 @@ export default class LevelBox extends React.Component {
 
     const ranking = this.state.ranking !== -1 ? '#' + this.state.ranking : '-';
 
+    const playLink = `/play?level=${this.props.level._id}&redirect=${location.pathname}`;
+
     if (!hasResults) {
       return (
         <div className="_level">
           <h3 className="name"><i className="fas fa-circle"></i>{this.props.level.name}</h3>
-          <a className="ed-link">Start</a>
+          <a href={playLink} className="ed-link">Start</a>
         </div>);
     }
 

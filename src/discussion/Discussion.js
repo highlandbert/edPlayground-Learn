@@ -37,11 +37,6 @@ export default class Discussion extends Component {
       <div>
         <Link to={backLink} className="ed-link separated">Back to course</Link>
         <Link to={newLink} className="ed-link">New Question</Link>
-        <div className="question-link boxi">
-          <h3><i className="fas fa-thumbtack"></i> Welcome!</h3>
-          <p>edPlayground</p>
-          <a href="#" className="ed-link">Open</a>
-        </div>
         {questions}
       </div>
     );

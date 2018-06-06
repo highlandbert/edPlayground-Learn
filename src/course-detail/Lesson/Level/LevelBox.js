@@ -17,7 +17,7 @@ export default class LevelBox extends React.Component {
           return Promise.reject();
         }
         this.setState({ seconds: result.seconds });
-        return Results.getRanking(result.seconds);
+        return Results.getRanking(result.seconds, props.level._id);
       })
       .then(
         ranking => this.setState({ ranking: ranking }),
@@ -37,7 +37,9 @@ export default class LevelBox extends React.Component {
 
     const ranking = this.state.ranking !== -1 ? '#' + this.state.ranking : '-';
 
-    const playLink = `/play?level=${this.props.level._id}&redirect=${location.pathname}`;
+    console.log(this.props.level);
+
+    const playLink = `/play?level=${this.props.level._id}&lesson=${this.props.level.lesson}&redirect=${location.pathname}`;
 
     if (!hasResults) {
       return (

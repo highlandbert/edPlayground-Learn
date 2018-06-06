@@ -19,6 +19,7 @@ export class Level {
     this._id = obj && obj._id || 0;
     this.name = obj && obj.name || '';
     this.order = obj && obj.order || 0;
+    this.lesson = obj && obj.lesson || 0;
     this.hasScores = false;
     if (obj && obj.hasScores) {
       this.hasScores = true;

@@ -29,8 +29,8 @@ export default class Results {
       });
   }
 
-  static getRanking(seconds) {
-    return ApiService.get(`levelsResults/ranking/${seconds}`)
+  static getRanking(seconds, levelId) {
+    return ApiService.get(`levelsResults/ranking/${seconds}/level/${levelId}`)
       .then(result => result);
   }
 
